@@ -1,0 +1,55 @@
+### Создание объявления
+POST http://localhost:8000/advertisement
+Content-Type: application/json
+
+{
+    "title": "Продам коня 2",
+    "description": "Хороший конь ",
+    "price": 190000.00,
+    "author": "Женя Петров"
+}
+
+### Создание объявления 2
+POST http://localhost:8000/advertisement
+Content-Type: application/json
+
+{
+    "title": "Сдам квартиру",
+    "description": "1-комнатная, рядом с метро",
+    "price": 35000.00,
+    "author": "Мария Смирнова"
+}
+
+
+### Получение объявления по id (замените 1 на реальный id)
+GET http://localhost:8000/advertisement/1
+
+### Обновление объявления (PATCH)
+PATCH http://localhost:8000/advertisement/1
+Content-Type: application/json
+
+{
+    "price": 1400000.00,
+    "description": "Хороший гараж в центре, срочная продажа"
+}
+
+### Удаление объявления
+DELETE http://localhost:8000/advertisement/1
+
+### Поиск по заголовку
+GET http://localhost:8000/advertisement?title=гараж
+
+### Поиск по автору
+GET http://localhost:8000/advertisement?author=Иван
+
+### Поиск по цене (от 30000 до 40000)
+GET http://localhost:8000/advertisement?price_min=30000&price_max=40000
+
+### Поиск по описанию
+GET http://localhost:8000/advertisement?description=метро
+
+### Поиск по нескольким параметрам
+GET http://localhost:8000/advertisement?author=Алексей&price_min=150000&price_max=250000
+
+### Получить все объявления (без фильтров)
+GET http://localhost:8000/advertisement
