@@ -1,0 +1,23 @@
+import datetime
+from pydantic import BaseModel
+
+
+class AdBase(BaseModel):
+    title: str
+    description: str
+    price: float
+    author: str | None = None
+
+
+class AdCreate(AdBase):
+    pass
+
+class AdUpdate(BaseModel):
+    title: str | None = None
+    description: str | None = None
+    price: float | None = None
+    author: str | None = None
+
+class AdResponse(AdBase):
+    id: int
+    created_at: datetime.datetime
